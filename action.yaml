@@ -13,6 +13,9 @@ inputs:
   subsidiary_token:
     description: token (from GitHub or Azure) to update the submodule
     required: true
+  subsidiary_repo_name:
+    description: (optional) only for Azure Repos. It is the name of the repository
+    required: false
   subsidiary_repo_username:
     description: (Only required for Azure Repos) username for the checkout process
     required: false
@@ -58,6 +61,7 @@ runs:
         password: etc
     - name: Create new commit and push changes
       if: inputs.operation == 'push'
+      working-directory: ./${{ inputs.subsidiary_repo_name }}
       shell: bash
       run: |
         git config user.name github-actions

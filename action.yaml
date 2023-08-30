@@ -69,12 +69,12 @@ runs:
         git submodule update --remote
         git commit -am "${{ inputs.default_message }}"
         git push
-    - name: Create new pull request
-      if: inputs.operation == 'pull-request'
-      working-directory: ./${{ inputs.subsidiary_repo_name }}
-      uses: peter-evans/create-pull-request@v3
-      with:
-          token: ${{ inputs.subsidiary_token }}
-          commit-message: ${{ inputs.default_message }}
-          title: Automatic Pull Request
-          body: ${{ inputs.default_message }}
+    #- name: Create new pull request
+    #  if: inputs.operation == 'pull-request'
+    #  working-directory: ./${{ inputs.subsidiary_repo_name }}
+    #  uses: peter-evans/create-pull-request@v3
+    # with:
+    #      token: ${{ inputs.subsidiary_token }}
+    #      commit-message: ${{ inputs.default_message }}
+    #      title: Automatic Pull Request
+    #      body: ${{ inputs.default_message }}

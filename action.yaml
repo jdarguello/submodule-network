@@ -60,6 +60,7 @@ runs:
         username: ${{ inputs.subsidiary_repo_name }}
         repo_url: ${{ inputs.subsidiary_repo_url }}
     - name: List local directories
+      shell:  bash
       run: ls -la
     - name: Create new commit and push changes
       if: inputs.operation == 'push'

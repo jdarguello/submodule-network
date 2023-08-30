@@ -62,9 +62,18 @@ runs:
     - name: List local directories
       shell:  bash
       run: ls -la
-    - name: Create new commit and push changes
-      if: inputs.operation == 'push'
+    - if: ${{ (inputs.operation == 'push') && (inputs.platform == 'Azure') }} 
+      name: Create new commit and push changes
       working-directory: ./${{ inputs.subsidiary_repo_name }}
+      shell: bash
+      run: |
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git submodule update --remote
+        git commit -am "${{ inputs.default_message }}"
+        git push
+    - if: ${{ (inputs.operation == 'push') && (inputs.platform == 'GitHub') }}
+      name: Create new commit and push changes
       shell: bash
       run: |
         git config user.name github-actions

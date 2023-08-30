@@ -20,6 +20,7 @@ jobs:
             filial: Banistmo
             repo_url: https://jdarguel@dev.azure.com/jdarguel/ex/_git/Banistmo_Valko
             repo_name: Banistmo_Valko
+            username: jdarguel
             rama: BANISTMO_BRANCH
             token: BANISTMO_TOKEN
     steps:
@@ -34,5 +35,6 @@ jobs:
           subsidiary_branch: ${{ vars[matrix.rama] }}
           parent_branch: ${{ vars[matrix.rama] }}
           subsidiary_repo_name: ${{ matrix.repo_name }}
+          subsidiary_username: ${{ matrix.username }}
         
 

@@ -57,8 +57,10 @@ runs:
       uses: bancolombia/checkout-azure-repo@v1
       with: 
         token: ${{ inputs.subsidiary_token }}
-        username: john_doe
-        password: etc
+        username: ${{ inputs.subsidiary_repo_name }}
+        repo_url: ${{ inputs.subsidiary_repo_url }}
+    - name: List local directories
+      run: ls -la
     - name: Create new commit and push changes
       if: inputs.operation == 'push'
       working-directory: ./${{ inputs.subsidiary_repo_name }}

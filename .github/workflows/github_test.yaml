@@ -13,12 +13,15 @@ jobs:
           - plataforma: GitHub
             filial: Bancolombia
             repo_url: jdarguello/Valko_Banistmo
+            repo_name: Valko_Banistmo
             rama: BANCOLOMBIA_BRANCH
             token: BANCOLOMBIA_TOKEN
-          #- plataforma: Azure
-          #  filial: Banistmo
-          #  repo_url: BANISTMO_URL
-          #  rama: BANISTMO_BRANCH
+          - plataforma: Azure
+            filial: Banistmo
+            repo_url: https://jdarguel@dev.azure.com/jdarguel/ex/_git/Banistmo_Valko
+            repo_name: Banistmo_Valko
+            rama: BANISTMO_BRANCH
+            token: BANISTMO_TOKEN
     steps:
       - uses: actions/checkout@v3
       - name: run action
@@ -30,5 +33,6 @@ jobs:
           subsidiary_token: ${{ secrets[matrix.token] }}
           subsidiary_branch: ${{ vars[matrix.rama] }}
           parent_branch: ${{ vars[matrix.rama] }}
+          subsidiary_repo_name: ${{ matrix.repo_name }}
         
 

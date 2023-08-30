@@ -18,7 +18,7 @@ jobs:
             token: BANCOLOMBIA_TOKEN
           - plataforma: Azure
             filial: Banistmo
-            repo_url: jdarguel@dev.azure.com/jdarguel/ex/_git/Banistmo_Valko
+            repo_url: dev.azure.com/jdarguel/ex/_git/Banistmo_Valko
             repo_name: Banistmo_Valko
             username: jdarguel
             rama: BANISTMO_BRANCH
